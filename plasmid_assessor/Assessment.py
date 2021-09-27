@@ -46,6 +46,10 @@ class Assessment:
         analysis = Bio.Restriction.Analysis(
             restriction_batch, sequence=Bio.Seq.Seq(self.record.seq)
         )
-        analysis_results = analysis.full()
+        if "is_circular" in self.results:
+            is_linear = not self.results["is_circular"]
+        else:
+            is_linear = False
+        analysis_results = analysis.full(linear=is_linear)
 
         self.results["number_of_sites"] = len(analysis_results[self.enzyme])
