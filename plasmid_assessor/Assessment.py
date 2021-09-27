@@ -5,6 +5,7 @@ import Bio.Restriction
 class Assessment:
     """The plasmid assessment class.
 
+
     **Parameters**
 
     **record**
@@ -32,6 +33,7 @@ class Assessment:
 
     def assess_plasmid(self, other_enzymes=None):
         """Evaluate plasmid for Golden Gate
+
 
         **Parameters**
 
