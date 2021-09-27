@@ -30,7 +30,16 @@ class Assessment:
         **other_enzymes**
         > List of enzymes used in higher level assemblies (`list`).
         """
+        self.check_circularity()
         self.get_number_of_sites()
+
+    def check_circularity(self):
+        if "topology" not in self.record.annotations:
+            self.results["is_circular"] = False
+        elif self.record.annotations["topology"] == "circular":
+            self.results["is_circular"] = True
+        else:
+            self.results["is_circular"] = False
 
     def get_number_of_sites(self):
         restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
