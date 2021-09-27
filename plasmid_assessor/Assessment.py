@@ -1,3 +1,5 @@
+import re
+
 import Bio
 import Bio.Restriction
 
@@ -53,3 +55,13 @@ class Assessment:
         analysis_results = analysis.full(linear=is_linear)
 
         self.results["number_of_sites"] = len(analysis_results[self.enzyme])
+
+    def evaluate_orientation(self):
+        self.results["is_site_orientation_correct"] = False  # default
+        # Forward strand:
+        iter = (match for match in re.finditer(self.enzyme.site, self.record.seq))
+        if sum(1 for _ in iter) == 1:
+            rev_complement = Bio.Seq.reverse_complement(self.record.seq)
+            iter_reverse = (m for m in re.finditer(self.enzyme.site, rev_complement))
+            if sum(1 for _ in iter_reverse) == 1:  # 1 site in both strands:
+                self.results["is_site_orientation_correct"] = True

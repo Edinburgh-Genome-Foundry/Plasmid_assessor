@@ -25,3 +25,10 @@ def test_get_number_of_sites():
     design = plasma.Assessment(sequence, "BsmBI")
     design.get_number_of_sites()
     assert design.results["number_of_sites"] == 2
+
+
+def test_evaluate_orientation():
+    sequence = SeqRecord("AAAAA" + "CGTCTCAACTG" + "AAAAA" + "TATCAGAGACG" + "AAAAA")
+    design = plasma.Assessment(sequence, "BsmBI")
+    design.evaluate_orientation()
+    assert design.results["is_site_orientation_correct"]
