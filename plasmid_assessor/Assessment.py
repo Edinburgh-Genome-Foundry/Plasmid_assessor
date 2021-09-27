@@ -16,16 +16,6 @@ class Assessment:
     up using the string.
     """
 
-    properties = [
-        "is_circular",
-        "number_of_sites",
-        "is_site_orientation_correct",
-        "left_overhang",
-        "right_overhang",
-        "insert_seq",
-        "backbone_seq",
-    ]  # assessment is performed in this order
-
     def __init__(self, record, enzyme):
         self.record = record
         self.enzyme = Bio.Restriction.__dict__[enzyme]
@@ -40,6 +30,9 @@ class Assessment:
         **other_enzymes**
         > List of enzymes used in higher level assemblies (`list`).
         """
+        self.get_number_of_sites()
+
+    def get_number_of_sites(self):
         restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
         analysis = Bio.Restriction.Analysis(
             restriction_batch, sequence=Bio.Seq.Seq(self.record.seq)
