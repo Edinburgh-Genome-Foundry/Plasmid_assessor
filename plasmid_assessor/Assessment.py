@@ -1,3 +1,4 @@
+import Bio
 import Bio.Restriction
 
 
@@ -15,13 +16,13 @@ class Assessment:
     """
 
     properties = [
-        "is_circular"
-        "number_of_sites"
-        "is_site_orientation_correct"
-        "left_overhang"
-        "right_overhang"
-        "insert_seq"
-        "backbone_seq"
+        "is_circular",
+        "number_of_sites",
+        "is_site_orientation_correct",
+        "left_overhang",
+        "right_overhang",
+        "insert_seq",
+        "backbone_seq",
     ]  # assessment is performed in this order
 
     def __init__(self, record, enzyme):
@@ -37,4 +38,10 @@ class Assessment:
         **other_enzymes**
         > List of enzymes used in higher level assemblies (`list`).
         """
-        pass
+        restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
+        analysis = Bio.Restriction.Analysis(
+            restriction_batch, sequence=Bio.Seq.Seq(self.record.seq)
+        )
+        analysis_results = analysis.full()
+
+        self.results["number_of_sites"] = len(analysis_results[self.enzyme])
