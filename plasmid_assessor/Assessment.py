@@ -45,9 +45,7 @@ class Assessment:
 
     def get_number_of_sites(self):
         restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
-        analysis = Bio.Restriction.Analysis(
-            restriction_batch, sequence=Bio.Seq.Seq(self.record.seq)
-        )
+        analysis = Bio.Restriction.Analysis(restriction_batch, sequence=self.record.seq)
         if "is_circular" in self.results:
             is_linear = not self.results["is_circular"]
         else:
@@ -59,9 +57,9 @@ class Assessment:
     def evaluate_orientation(self):
         self.results["is_site_orientation_correct"] = False  # default
         # Forward strand:
-        iter = (match for match in re.finditer(self.enzyme.site, self.record.seq))
+        iter = (match for match in re.finditer(self.enzyme.site, str(self.record.seq)))
         if sum(1 for _ in iter) == 1:
-            rev_complement = Bio.Seq.reverse_complement(self.record.seq)
+            rev_complement = str(self.record.seq.reverse_complement())
             iter_reverse = (m for m in re.finditer(self.enzyme.site, rev_complement))
             if sum(1 for _ in iter_reverse) == 1:  # 1 site in both strands:
                 self.results["is_site_orientation_correct"] = True
