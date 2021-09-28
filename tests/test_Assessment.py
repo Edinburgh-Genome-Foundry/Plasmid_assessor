@@ -4,9 +4,15 @@ import plasmid_assessor as plasma
 
 
 def test_assess_plasmid():
-    record = SeqRecord(Seq("ATCGATCG"))
+    # Also tests digest_plasmid()
+    record = SeqRecord(
+        Seq("AAAAACGTCTCAACTG" + "AAAAA" + "TATCAGAGACGAAAAA"),
+        annotations={"topology": "circular"},
+    )
     design = plasma.Assessment(record, "BsmBI")
     design.assess_plasmid()
+    assert design.results["digest"]["first_overhang"] == "TATC"
+    assert design.results["digest"]["last_overhang"] == "ACTG"
 
 
 def test_check_circularity():

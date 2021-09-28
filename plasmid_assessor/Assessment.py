@@ -3,6 +3,8 @@ import re
 import Bio
 import Bio.Restriction
 
+import dnacauldron as dc
+
 
 class Assessment:
     """The plasmid assessment class.
@@ -24,7 +26,7 @@ class Assessment:
         self.results = {}
 
     def assess_plasmid(self, other_enzymes=None):
-        """Evaluate plasmid for Golden Gate
+        """Evaluate plasmid for Golden Gate.
 
 
         **Parameters**
@@ -34,6 +36,8 @@ class Assessment:
         """
         self.check_circularity()
         self.get_number_of_sites()
+        self.evaluate_orientation()
+        self.digest_plasmid()
 
     def check_circularity(self):
         if "topology" not in self.record.annotations:
@@ -63,3 +67,33 @@ class Assessment:
             iter_reverse = (m for m in re.finditer(self.enzyme.site, rev_complement))
             if sum(1 for _ in iter_reverse) == 1:  # 1 site in both strands:
                 self.results["is_site_orientation_correct"] = True
+
+    def digest_plasmid(self):
+        # Obtain fragments and get the backbone's overhangs.
+        # This method has two assumptions:
+        # - the sequence has two, correctly oriented enzyme sites.
+        # - the sequence is circular.
+        # Therefore there will be exactly two fragments, with one containing both sites.
+        self.results["digest"] = {}
+        if not self.results["is_circular"]:
+            return
+        if not self.results["is_site_orientation_correct"]:
+            return
+
+        record_fragments = dc.StickyEndFragment.list_from_record_digestion(
+            record=self.record, enzyme=self.enzyme, linear=False
+        )
+        if self.enzyme.site in record_fragments[0].to_standard_string():
+            backbone_index = 1  # there are only two fragments
+            excise_index = 0
+        else:
+            backbone_index = 0
+            excise_index = 1  # reversed
+        self.results["digest"]["backbone_seq"] = record_fragments[backbone_index]
+        self.results["digest"]["excised_seq"] = record_fragments[excise_index]
+        self.results["digest"]["first_overhang"] = str(
+            record_fragments[excise_index].seq.left_end
+        )
+        self.results["digest"]["last_overhang"] = str(
+            record_fragments[excise_index].seq.right_end
+        )
