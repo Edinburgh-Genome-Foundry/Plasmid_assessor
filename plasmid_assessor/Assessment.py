@@ -49,12 +49,14 @@ class Assessment:
             self.results["is_circular"] = False
 
     def get_number_of_sites(self):
-        restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
-        analysis = Bio.Restriction.Analysis(restriction_batch, sequence=self.record.seq)
         if "is_circular" in self.results:
             is_linear = not self.results["is_circular"]
         else:
             is_linear = False
+        restriction_batch = Bio.Restriction.RestrictionBatch([self.enzyme])
+        analysis = Bio.Restriction.Analysis(
+            restriction_batch, sequence=self.record.seq, linear=is_linear
+        )
         analysis_results = analysis.full(linear=is_linear)
 
         self.results["number_of_sites"] = len(analysis_results[self.enzyme])
@@ -106,6 +108,7 @@ class Assessment:
         bio_enzymes = [Bio.Restriction.__dict__[enzyme] for enzyme in other_enzymes]
 
         restriction_batch = Bio.Restriction.RestrictionBatch(bio_enzymes)
+        # Work with the assumption that the sequence is circular:
         analysis = Bio.Restriction.Analysis(
             restriction_batch, sequence=self.record.seq, linear=False
         )
