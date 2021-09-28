@@ -18,6 +18,7 @@ The choice of the two backbone overhangs are also important, because they will b
 
 ```
 pip install plasmid_assessor
+# pip install plasmid_assessor[report]  # install with dependencies for pdf reports
 ```
 
 

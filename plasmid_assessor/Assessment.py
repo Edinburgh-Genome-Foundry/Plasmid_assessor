@@ -39,6 +39,7 @@ class Assessment:
         self.evaluate_orientation()
         self.digest_plasmid()
         self.count_other_sites(other_enzymes)
+        self.sum_results()
 
     def check_circularity(self):
         if "topology" not in self.record.annotations:
@@ -118,3 +119,16 @@ class Assessment:
         for enzyme, matches in self.results["other_sites"]["enzyme"].items():
             if len(matches) != 0:
                 self.results["other_sites"]["has_any_other_sites"] = True
+
+    def sum_results(self):
+        self.results["pass"] = True
+        if self.results["is_circular"] is False:
+            self.results["pass"] = False
+            return
+        if self.results["is_site_orientation_correct"] is False:
+            # implicitly checks number of sites too
+            self.results["pass"] = False
+            return
+        if self.results["other_sites"]["has_any_other_sites"]:
+            self.results["pass"] = False
+            return

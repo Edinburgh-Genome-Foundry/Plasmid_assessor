@@ -1,0 +1,52 @@
+#sidebar: p {{sidebar_text}}
+
+.logos
+  img(src="file:///{{ egf_logo_url }}" style="height:40px; width: auto")
+
+hr
+h1 Plasmid assessment report
+hr
+
+div(style="margin-top:1cm; margin-bottom:1cm;")
+
+if assessment.results.pass
+  p(style="text-align:left;")
+    b(style='font-size: 50px;') #[span.green ☑] &ensp; #[span.grey Passed!]
+    //- b(style='font-size: 20px;') &emsp;&emsp; Success!
+else
+  p(style="text-align:left;")
+    b(style='font-size: 50px;') #[span.red ☒] &ensp; #[span.grey Error!]
+
+  //- p(style="text-align:left;")
+  //-   b(style='font-size: 50px;') #[span.yellow ⚠] &ensp; #[span.grey {{ id }}]
+
+
+//- {{ assessment.report_table }}
+
+
+h3 Plasmid map
+
+//- img#diff-figure(src="{{ assessment.figure_data }}")
+
+//- img#diff-figure(src="{{ assessment.schematics_data }}")
+
+
+unless assessment.results.is_circular
+
+  p Sequence topology was not set to 'circular'. Set sequence to circular and re-run assessment to search for potential enzyme sites spanning over the ends of the sequence.
+
+
+
+style.
+  .green {
+    color: #86bf86
+  }
+  .grey {
+    color: #a9a9a9
+  }
+  .red {
+    color: #fd5a31
+  }
+  .yellow {
+    color: #f7b500
+  }

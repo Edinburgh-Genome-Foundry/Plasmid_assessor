@@ -17,4 +17,5 @@ setup(
     packages=find_packages(exclude="docs"),
     include_package_data=True,
     install_requires=["biopython", "dnacauldron"],
+    extras_require={"report": ["pdf_reports"]},
 )
