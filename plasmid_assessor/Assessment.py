@@ -38,6 +38,7 @@ class Assessment:
         self.get_number_of_sites()
         self.evaluate_orientation()
         self.digest_plasmid()
+        self.count_other_sites(other_enzymes)
 
     def check_circularity(self):
         if "topology" not in self.record.annotations:
@@ -97,3 +98,20 @@ class Assessment:
         self.results["digest"]["last_overhang"] = str(
             record_fragments[excise_index].seq.right_end
         )
+
+    def count_other_sites(self, other_enzymes):
+        self.results["other_sites"] = {}
+        if other_enzymes is None:
+            return
+        bio_enzymes = [Bio.Restriction.__dict__[enzyme] for enzyme in other_enzymes]
+
+        restriction_batch = Bio.Restriction.RestrictionBatch(bio_enzymes)
+        analysis = Bio.Restriction.Analysis(
+            restriction_batch, sequence=self.record.seq, linear=False
+        )
+        self.results["other_sites"]["enzyme"] = analysis.full(linear=False)
+
+        self.results["other_sites"]["has_any_other_sites"] = False
+        for enzyme, matches in self.results["other_sites"]["enzyme"].items():
+            if len(matches) != 0:
+                self.results["other_sites"]["has_any_other_sites"] = True

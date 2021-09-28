@@ -1,5 +1,7 @@
+import Bio.Restriction
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
+
 import plasmid_assessor as plasma
 
 
@@ -39,3 +41,11 @@ def test_evaluate_orientation():
     design = plasma.Assessment(sequence, "BsmBI")
     design.evaluate_orientation()
     assert design.results["is_site_orientation_correct"]
+
+
+def test_count_other_sites():
+    sequence = SeqRecord(Seq("CGTCTCAACTG" + "AAA" + "TATCAGAGACG" + "AGGTCTC"))
+    design = plasma.Assessment(sequence, "BsmBI")
+    design.count_other_sites(other_enzymes=["BsaI"])
+    assert design.results["other_sites"]["has_any_other_sites"]
+    assert len(design.results["other_sites"]["enzyme"][Bio.Restriction.BsaI]) == 1
