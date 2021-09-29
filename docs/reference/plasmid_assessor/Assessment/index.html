@@ -1,0 +1,1377 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+    
+    
+      
+        <title>Assessment - Plasmid_assessor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.b5d04df8.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9ab2c1f8.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-plasmid_assessorassessment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Plasmid_assessor" class="md-header-nav__button md-logo" aria-label="Plasmid_assessor">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Plasmid_assessor
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Assessment
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Edinburgh-Genome-Foundry/Plasmid_assessor/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Plasmid_assessor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Plasmid_assessor" class="md-nav__button md-logo" aria-label="Plasmid_assessor">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Plasmid_assessor
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Edinburgh-Genome-Foundry/Plasmid_assessor/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Plasmid_assessor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Plasmid Assessor
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Plasmid Assessor" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Plasmid Assessor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Assessment
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Assessment" class="md-nav__link md-nav__link--active">
+      Assessment
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    Assessment
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assess_plasmid" class="md-nav__link">
+    assess_plasmid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_circularity" class="md-nav__link">
+    check_circularity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count_other_sites" class="md-nav__link">
+    count_other_sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digest_plasmid" class="md-nav__link">
+    digest_plasmid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate_orientation" class="md-nav__link">
+    evaluate_orientation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_number_of_sites" class="md-nav__link">
+    get_number_of_sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum_results" class="md-nav__link">
+    sum_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reports/" title="Reports" class="md-nav__link">
+      Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../version/" title="Version" class="md-nav__link">
+      Version
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    Assessment
+  </a>
+  
+    <nav class="md-nav" aria-label="Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assess_plasmid" class="md-nav__link">
+    assess_plasmid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_circularity" class="md-nav__link">
+    check_circularity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count_other_sites" class="md-nav__link">
+    count_other_sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digest_plasmid" class="md-nav__link">
+    digest_plasmid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluate_orientation" class="md-nav__link">
+    evaluate_orientation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_number_of_sites" class="md-nav__link">
+    get_number_of_sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum_results" class="md-nav__link">
+    sum_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Edinburgh-Genome-Foundry/Plasmid_assessor/edit/master/reference/plasmid_assessor/Assessment.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-plasmid_assessorassessment">Module plasmid_assessor.Assessment</h1>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">Bio</span>
+
+<span class="kn">import</span> <span class="nn">Bio.Restriction</span>
+
+<span class="kn">import</span> <span class="nn">dnacauldron</span> <span class="k">as</span> <span class="nn">dc</span>
+
+<span class="k">class</span> <span class="nc">Assessment</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;The plasmid assessment class.</span>
+
+<span class="sd">    **Parameters**</span>
+
+<span class="sd">    **record**</span>
+
+<span class="sd">    &gt; A Biopython `SeqRecord`.</span>
+
+<span class="sd">    **enzyme**</span>
+
+<span class="sd">    &gt; A restriction enzyme (`str`). A Biopython `RestrictionType` will be looked</span>
+
+<span class="sd">    up using the string.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">enzyme</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">record</span> <span class="o">=</span> <span class="n">record</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">enzyme</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">assess_plasmid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_enzymes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Evaluate plasmid for Golden Gate.</span>
+
+<span class="sd">        **Parameters**</span>
+
+<span class="sd">        **other_enzymes**</span>
+
+<span class="sd">        &gt; List of enzymes used in higher level assemblies (`list`).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_circularity</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_number_of_sites</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">evaluate_orientation</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">digest_plasmid</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_other_sites</span><span class="p">(</span><span class="n">other_enzymes</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_results</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">check_circularity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="s2">&quot;topology&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">annotations</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="s2">&quot;topology&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;circular&quot;</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">get_number_of_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="s2">&quot;is_circular&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+
+            <span class="n">is_linear</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">is_linear</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">restriction_batch</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="n">RestrictionBatch</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="p">])</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="n">Analysis</span><span class="p">(</span>
+
+            <span class="n">restriction_batch</span><span class="p">,</span> <span class="n">sequence</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="n">is_linear</span>
+
+        <span class="p">)</span>
+
+        <span class="n">analysis_results</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">linear</span><span class="o">=</span><span class="n">is_linear</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;number_of_sites&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">analysis_results</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">evaluate_orientation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_site_orientation_correct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># default</span>
+
+        <span class="c1"># Forward strand:</span>
+
+        <span class="nb">iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">match</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="o">.</span><span class="n">site</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+            <span class="n">rev_complement</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">())</span>
+
+            <span class="n">iter_reverse</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="o">.</span><span class="n">site</span><span class="p">,</span> <span class="n">rev_complement</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">iter_reverse</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># 1 site in both strands:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_site_orientation_correct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">digest_plasmid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># Obtain fragments and get the backbone&#39;s overhangs.</span>
+
+        <span class="c1"># This method has two assumptions:</span>
+
+        <span class="c1"># - the sequence has two, correctly oriented enzyme sites.</span>
+
+        <span class="c1"># - the sequence is circular.</span>
+
+        <span class="c1"># Therefore there will be exactly two fragments, with one containing both sites.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;digest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]:</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_site_orientation_correct&quot;</span><span class="p">]:</span>
+
+            <span class="k">return</span>
+
+        <span class="n">record_fragments</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">StickyEndFragment</span><span class="o">.</span><span class="n">list_from_record_digestion</span><span class="p">(</span>
+
+            <span class="n">record</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="p">,</span> <span class="n">enzyme</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enzyme</span><span class="o">.</span><span class="n">site</span> <span class="ow">in</span> <span class="n">record_fragments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_standard_string</span><span class="p">():</span>
+
+            <span class="n">backbone_index</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># there are only two fragments</span>
+
+            <span class="n">excise_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">backbone_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">excise_index</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># reversed</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;digest&quot;</span><span class="p">][</span><span class="s2">&quot;backbone_seq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record_fragments</span><span class="p">[</span><span class="n">backbone_index</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;digest&quot;</span><span class="p">][</span><span class="s2">&quot;excised_seq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record_fragments</span><span class="p">[</span><span class="n">excise_index</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;digest&quot;</span><span class="p">][</span><span class="s2">&quot;first_overhang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+
+            <span class="n">record_fragments</span><span class="p">[</span><span class="n">excise_index</span><span class="p">]</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">left_end</span>
+
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;digest&quot;</span><span class="p">][</span><span class="s2">&quot;last_overhang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+
+            <span class="n">record_fragments</span><span class="p">[</span><span class="n">excise_index</span><span class="p">]</span><span class="o">.</span><span class="n">seq</span><span class="o">.</span><span class="n">right_end</span>
+
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">count_other_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_enzymes</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">other_enzymes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">return</span>
+
+        <span class="n">bio_enzymes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">enzyme</span><span class="p">]</span> <span class="k">for</span> <span class="n">enzyme</span> <span class="ow">in</span> <span class="n">other_enzymes</span><span class="p">]</span>
+
+        <span class="n">restriction_batch</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="n">RestrictionBatch</span><span class="p">(</span><span class="n">bio_enzymes</span><span class="p">)</span>
+
+        <span class="c1"># Work with the assumption that the sequence is circular:</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">Restriction</span><span class="o">.</span><span class="n">Analysis</span><span class="p">(</span>
+
+            <span class="n">restriction_batch</span><span class="p">,</span> <span class="n">sequence</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">][</span><span class="s2">&quot;enzyme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">linear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">][</span><span class="s2">&quot;has_any_other_sites&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">enzyme</span><span class="p">,</span> <span class="n">matches</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">][</span><span class="s2">&quot;enzyme&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">][</span><span class="s2">&quot;has_any_other_sites&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">sum_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;pass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_circular&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;pass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;is_site_orientation_correct&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+
+            <span class="c1"># implicitly checks number of sites too</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;pass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;other_sites&quot;</span><span class="p">][</span><span class="s2">&quot;has_any_other_sites&quot;</span><span class="p">]:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;pass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="k">return</span>
+</code></pre></div>
+
+
+</details>
+<h2 id="classes">Classes</h2>
+<h3 id="assessment">Assessment</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Assessment</span><span class="p">(</span>
+    <span class="n">record</span><span class="p">,</span>
+    <span class="n">enzyme</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>The plasmid assessment class.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>record</strong></p>
+<blockquote>
+<p>A Biopython <code>SeqRecord</code>.</p>
+</blockquote>
+<p><strong>enzyme</strong></p>
+<blockquote>
+<p>A restriction enzyme (<code>str</code>). A Biopython <code>RestrictionType</code> will be looked
+up using the string.</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nl">Assessment</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;The plasmid assessment class.</span>
+
+<span class="ss">    **Parameters**</span>
+
+<span class="ss">    **record**</span>
+
+<span class="ss">    &gt; A Biopython `SeqRecord`.</span>
+
+<span class="ss">    **enzyme**</span>
+
+<span class="ss">    &gt; A restriction enzyme (`str`). A Biopython `RestrictionType` will be looked</span>
+
+<span class="ss">    up using the string.</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">enzyme</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">__dict__</span><span class="o">[</span><span class="n">enzyme</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">assess_plasmid</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_enzymes</span><span class="o">=</span><span class="k">None</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;Evaluate plasmid for Golden Gate.</span>
+
+<span class="ss">        **Parameters**</span>
+
+<span class="ss">        **other_enzymes**</span>
+
+<span class="ss">        &gt; List of enzymes used in higher level assemblies (`list`).</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">check_circularity</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">get_number_of_sites</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">evaluate_orientation</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">digest_plasmid</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">count_other_sites</span><span class="p">(</span><span class="n">other_enzymes</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">sum_results</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">check_circularity</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">&quot;topology&quot;</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="nl">annotations</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">elif</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">annotations</span><span class="o">[</span><span class="n">&quot;topology&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;circular&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_number_of_sites</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">&quot;is_circular&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">results</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">is_linear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">is_linear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">restriction_batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">RestrictionBatch</span><span class="p">(</span><span class="o">[</span><span class="n">self.enzyme</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">analysis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">Analysis</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">restriction_batch</span><span class="p">,</span><span class="w"> </span><span class="k">sequence</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">seq</span><span class="p">,</span><span class="w"> </span><span class="n">linear</span><span class="o">=</span><span class="n">is_linear</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">analysis_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analysis</span><span class="p">.</span><span class="k">full</span><span class="p">(</span><span class="n">linear</span><span class="o">=</span><span class="n">is_linear</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;number_of_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">analysis_results</span><span class="o">[</span><span class="n">self.enzyme</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">evaluate_orientation</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_site_orientation_correct&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Forward</span><span class="w"> </span><span class="nl">strand</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">match</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">.</span><span class="n">site</span><span class="p">,</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">seq</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iter</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">rev_complement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">seq</span><span class="p">.</span><span class="n">reverse_complement</span><span class="p">())</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">iter_reverse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">.</span><span class="n">site</span><span class="p">,</span><span class="w"> </span><span class="n">rev_complement</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iter_reverse</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">both</span><span class="w"> </span><span class="nl">strands</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_site_orientation_correct&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">digest_plasmid</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Obtain</span><span class="w"> </span><span class="n">fragments</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">backbone</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">overhangs</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">method</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="nl">assumptions</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="n">oriented</span><span class="w"> </span><span class="n">enzyme</span><span class="w"> </span><span class="n">sites</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">circular</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Therefore</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">fragments</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="k">both</span><span class="w"> </span><span class="n">sites</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_site_orientation_correct&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">record_fragments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dc</span><span class="p">.</span><span class="n">StickyEndFragment</span><span class="p">.</span><span class="n">list_from_record_digestion</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">enzyme</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">,</span><span class="w"> </span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">.</span><span class="n">site</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="n">to_standard_string</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">backbone_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">fragments</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">excise_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">backbone_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">excise_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">reversed</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;backbone_seq&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">backbone_index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;excised_seq&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;first_overhang&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="p">.</span><span class="n">seq</span><span class="p">.</span><span class="n">left_end</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;last_overhang&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="p">.</span><span class="n">seq</span><span class="p">.</span><span class="n">right_end</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">count_other_sites</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_enzymes</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">other_enzymes</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bio_enzymes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">Bio.Restriction.__dict__[enzyme</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">enzyme</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">other_enzymes</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">restriction_batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">RestrictionBatch</span><span class="p">(</span><span class="n">bio_enzymes</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">assumption</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nl">circular</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">analysis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">Analysis</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">restriction_batch</span><span class="p">,</span><span class="w"> </span><span class="k">sequence</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">seq</span><span class="p">,</span><span class="w"> </span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;enzyme&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analysis</span><span class="p">.</span><span class="k">full</span><span class="p">(</span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;has_any_other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">enzyme</span><span class="p">,</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;enzyme&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;has_any_other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">sum_results</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;pass&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">False</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;pass&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_site_orientation_correct&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">False</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">implicitly</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">sites</span><span class="w"> </span><span class="n">too</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;pass&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;has_any_other_sites&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;pass&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<hr />
+<h4 id="methods">Methods</h4>
+<h5 id="assess_plasmid">assess_plasmid</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">assess_plasmid</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">other_enzymes</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<p>Evaluate plasmid for Golden Gate.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>other_enzymes</strong></p>
+<blockquote>
+<p>List of enzymes used in higher level assemblies (<code>list</code>).</p>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="n">def</span> <span class="n">assess_plasmid</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other_enzymes</span><span class="o">=</span><span class="k">None</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Evaluate plasmid for Golden Gate.</span>
+
+<span class="s2">        **Parameters**</span>
+
+<span class="s2">        **other_enzymes**</span>
+
+<span class="s2">        &gt; List of enzymes used in higher level assemblies (`list`).</span>
+
+<span class="s2">        </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">check_circularity</span><span class="p">()</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">get_number_of_sites</span><span class="p">()</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">evaluate_orientation</span><span class="p">()</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">digest_plasmid</span><span class="p">()</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">count_other_sites</span><span class="p">(</span><span class="n">other_enzymes</span><span class="p">)</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">sum_results</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+<h5 id="check_circularity">check_circularity</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">check_circularity</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="nv">def</span> <span class="nv">check_circularity</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
+
+        <span class="k">if</span> <span class="s2">&quot;</span><span class="s">topology</span><span class="s2">&quot;</span> <span class="nv">not</span> <span class="nv">in</span> <span class="nv">self</span>.<span class="nv">record</span>.<span class="nv">annotations</span>:
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>
+
+        <span class="nv">elif</span> <span class="nv">self</span>.<span class="nv">record</span>.<span class="nv">annotations</span>[<span class="s2">&quot;</span><span class="s">topology</span><span class="s2">&quot;</span>] <span class="o">==</span> <span class="s2">&quot;</span><span class="s">circular</span><span class="s2">&quot;</span>:
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="k">else</span>:
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>
+</code></pre></div>
+
+
+</details>
+<h5 id="count_other_sites">count_other_sites</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">count_other_sites</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">other_enzymes</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">count_other_sites</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_enzymes</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">other_enzymes</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">bio_enzymes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">Bio.Restriction.__dict__[enzyme</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">enzyme</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">other_enzymes</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">restriction_batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">RestrictionBatch</span><span class="p">(</span><span class="n">bio_enzymes</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">assumption</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nl">circular</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">analysis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bio</span><span class="p">.</span><span class="n">Restriction</span><span class="p">.</span><span class="n">Analysis</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">restriction_batch</span><span class="p">,</span><span class="w"> </span><span class="k">sequence</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">.</span><span class="n">seq</span><span class="p">,</span><span class="w"> </span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;enzyme&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analysis</span><span class="p">.</span><span class="k">full</span><span class="p">(</span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;has_any_other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">enzyme</span><span class="p">,</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;enzyme&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;other_sites&quot;</span><span class="o">][</span><span class="n">&quot;has_any_other_sites&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h5 id="digest_plasmid">digest_plasmid</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">digest_plasmid</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">digest_plasmid</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Obtain</span><span class="w"> </span><span class="n">fragments</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">backbone</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">overhangs</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">method</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="nl">assumptions</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="n">oriented</span><span class="w"> </span><span class="n">enzyme</span><span class="w"> </span><span class="n">sites</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">sequence</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">circular</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Therefore</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">fragments</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="k">both</span><span class="w"> </span><span class="n">sites</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_circular&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;is_site_orientation_correct&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">record_fragments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dc</span><span class="p">.</span><span class="n">StickyEndFragment</span><span class="p">.</span><span class="n">list_from_record_digestion</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">enzyme</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">,</span><span class="w"> </span><span class="n">linear</span><span class="o">=</span><span class="k">False</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">enzyme</span><span class="p">.</span><span class="n">site</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="n">to_standard_string</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">backbone_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">fragments</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">excise_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">backbone_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">excise_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">reversed</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;backbone_seq&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">backbone_index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;excised_seq&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;first_overhang&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="p">.</span><span class="n">seq</span><span class="p">.</span><span class="n">left_end</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">results</span><span class="o">[</span><span class="n">&quot;digest&quot;</span><span class="o">][</span><span class="n">&quot;last_overhang&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">record_fragments</span><span class="o">[</span><span class="n">excise_index</span><span class="o">]</span><span class="p">.</span><span class="n">seq</span><span class="p">.</span><span class="n">right_end</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+
+</details>
+<h5 id="evaluate_orientation">evaluate_orientation</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">evaluate_orientation</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="nv">def</span> <span class="nv">evaluate_orientation</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
+
+        <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_site_orientation_correct</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>  # <span class="nv">default</span>
+
+        # <span class="nv">Forward</span> <span class="nv">strand</span>:
+
+        <span class="nv">iter</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">match</span> <span class="k">for</span> <span class="nv">match</span> <span class="nv">in</span> <span class="nv">re</span>.<span class="nv">finditer</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">enzyme</span>.<span class="nv">site</span>, <span class="nv">str</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">record</span>.<span class="nv">seq</span><span class="ss">)))</span>
+
+        <span class="k">if</span> <span class="nv">sum</span><span class="ss">(</span><span class="mi">1</span> <span class="k">for</span> <span class="nv">_</span> <span class="nv">in</span> <span class="nv">iter</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">1</span>:
+
+            <span class="nv">rev_complement</span> <span class="o">=</span> <span class="nv">str</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">record</span>.<span class="nv">seq</span>.<span class="nv">reverse_complement</span><span class="ss">())</span>
+
+            <span class="nv">iter_reverse</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">m</span> <span class="k">for</span> <span class="nv">m</span> <span class="nv">in</span> <span class="nv">re</span>.<span class="nv">finditer</span><span class="ss">(</span><span class="nv">self</span>.<span class="nv">enzyme</span>.<span class="nv">site</span>, <span class="nv">rev_complement</span><span class="ss">))</span>
+
+            <span class="k">if</span> <span class="nv">sum</span><span class="ss">(</span><span class="mi">1</span> <span class="k">for</span> <span class="nv">_</span> <span class="nv">in</span> <span class="nv">iter_reverse</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">1</span>:  # <span class="mi">1</span> <span class="nv">site</span> <span class="nv">in</span> <span class="nv">both</span> <span class="nv">strands</span>:
+
+                <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_site_orientation_correct</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">True</span>
+</code></pre></div>
+
+
+</details>
+<h5 id="get_number_of_sites">get_number_of_sites</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_number_of_sites</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="nv">def</span> <span class="nv">get_number_of_sites</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
+
+        <span class="k">if</span> <span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span> <span class="nv">in</span> <span class="nv">self</span>.<span class="nv">results</span>:
+
+            <span class="nv">is_linear</span> <span class="o">=</span> <span class="nv">not</span> <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span>]
+
+        <span class="k">else</span>:
+
+            <span class="nv">is_linear</span> <span class="o">=</span> <span class="nv">False</span>
+
+        <span class="nv">restriction_batch</span> <span class="o">=</span> <span class="nv">Bio</span>.<span class="nv">Restriction</span>.<span class="nv">RestrictionBatch</span><span class="ss">(</span>[<span class="nv">self</span>.<span class="nv">enzyme</span>]<span class="ss">)</span>
+
+        <span class="nv">analysis</span> <span class="o">=</span> <span class="nv">Bio</span>.<span class="nv">Restriction</span>.<span class="nv">Analysis</span><span class="ss">(</span>
+
+            <span class="nv">restriction_batch</span>, <span class="nv">sequence</span><span class="o">=</span><span class="nv">self</span>.<span class="nv">record</span>.<span class="nv">seq</span>, <span class="nv">linear</span><span class="o">=</span><span class="nv">is_linear</span>
+
+        <span class="ss">)</span>
+
+        <span class="nv">analysis_results</span> <span class="o">=</span> <span class="nv">analysis</span>.<span class="nv">full</span><span class="ss">(</span><span class="nv">linear</span><span class="o">=</span><span class="nv">is_linear</span><span class="ss">)</span>
+
+        <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">number_of_sites</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">len</span><span class="ss">(</span><span class="nv">analysis_results</span>[<span class="nv">self</span>.<span class="nv">enzyme</span>]<span class="ss">)</span>
+</code></pre></div>
+
+
+</details>
+<h5 id="sum_results">sum_results</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sum_results</span><span class="p">(</span>
+    <span class="bp">self</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code>    <span class="nv">def</span> <span class="nv">sum_results</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span>:
+
+        <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">pass</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">True</span>
+
+        <span class="k">if</span> <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_circular</span><span class="s2">&quot;</span>] <span class="nv">is</span> <span class="nv">False</span>:
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">pass</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">is_site_orientation_correct</span><span class="s2">&quot;</span>] <span class="nv">is</span> <span class="nv">False</span>:
+
+            # <span class="nv">implicitly</span> <span class="nv">checks</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">sites</span> <span class="nv">too</span>
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">pass</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>
+
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">other_sites</span><span class="s2">&quot;</span>][<span class="s2">&quot;</span><span class="s">has_any_other_sites</span><span class="s2">&quot;</span>]:
+
+            <span class="nv">self</span>.<span class="nv">results</span>[<span class="s2">&quot;</span><span class="s">pass</span><span class="s2">&quot;</span>] <span class="o">=</span> <span class="nv">False</span>
+
+            <span class="k">return</span>
+</code></pre></div>
+
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Index
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.92ffa368.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

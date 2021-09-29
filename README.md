@@ -8,6 +8,7 @@
 Plasmid assessment for Golden Gate cloning. An important task in DNA assembly is creating or adapting a plasmid to serve as a backbone for the assembled parts. This package provides tools for quickly checking a few basic backbone requirements on a plasmid sequence.
 
 The most important steps of vector (backbone) adaptation are ensuring that there are:
+
 * two sites for the chosen restriction enzyme, flanking the insert segment
 * no other sites for the restriction enzyme
 
@@ -25,7 +26,20 @@ pip install plasmid_assessor
 ## Usage
 
 ```python
-import plasmid_assessor
+import plasmid_assessor as plasma
+
+# Load your Genbank or FASTA file as a Biopython SeqRecord, or create a new one:
+from Bio.SeqRecord import SeqRecord
+from Bio.Seq import Seq
+sequence = SeqRecord(Seq("CGTCTCAACTG" + "AAA" + "TATCAGAGACG" + "AGGTCTC"), annotations={"topology": "circular"})
+
+# Evaluate plasmid:
+design = plasma.Assessment(sequence, "BsmBI")
+design.assess_plasmid(other_enzymes=["BsaI"])  # also check for the enzyme of the 2nd level assembly
+# Results are stored in:
+design.results
+# Save as a PDF report:
+plasma.write_pdf_report("report.pdf", design)
 ```
 
 
