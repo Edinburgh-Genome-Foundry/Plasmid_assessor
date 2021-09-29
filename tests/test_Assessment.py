@@ -49,3 +49,10 @@ def test_count_other_sites():
     design.count_other_sites(other_enzymes=["BsaI"])
     assert design.results["other_sites"]["has_any_other_sites"]
     assert len(design.results["other_sites"]["enzyme"][Bio.Restriction.BsaI]) == 1
+
+
+def test_plot_plasmid():
+    sequence = SeqRecord(Seq("CGTCTCAACTG" + "AAA" + "TATCAGAGACG" + "AGGTCTC"))
+    design = plasma.Assessment(sequence, "BsmBI")
+    design.plot_plasmid()
+    assert design.fig
