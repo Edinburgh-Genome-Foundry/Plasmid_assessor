@@ -107,6 +107,8 @@ class Assessment:
 
     def count_other_sites(self, other_enzymes):
         self.results["other_sites"] = {}
+        self.results["other_sites"]["has_any_other_sites"] = False
+
         if other_enzymes is None:
             return
         bio_enzymes = [Bio.Restriction.__dict__[enzyme] for enzyme in other_enzymes]
@@ -118,7 +120,6 @@ class Assessment:
         )
         self.results["other_sites"]["enzyme"] = analysis.full(linear=False)
 
-        self.results["other_sites"]["has_any_other_sites"] = False
         for enzyme, matches in self.results["other_sites"]["enzyme"].items():
             if len(matches) != 0:
                 self.results["other_sites"]["has_any_other_sites"] = True
