@@ -46,7 +46,8 @@ def write_pdf_report(target, assessment):
     **assessment**
     > Assessment instance.
     """
-    # assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt="svg")
+    assessment.plot_plasmid()
+    assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt="svg")
 
     html = end_pug_to_html(REPORT_TEMPLATE, assessment=assessment,)
     write_report(html, target, extra_stylesheets=(STYLESHEET,))

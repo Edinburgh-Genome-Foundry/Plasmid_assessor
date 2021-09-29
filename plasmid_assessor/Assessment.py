@@ -1,8 +1,11 @@
 import re
 
+import matplotlib.pyplot as plt
+
 import Bio
 import Bio.Restriction
 
+import dna_features_viewer
 import dnacauldron as dc
 
 
@@ -132,3 +135,14 @@ class Assessment:
         if self.results["other_sites"]["has_any_other_sites"]:
             self.results["pass"] = False
             return
+
+    def plot_plasmid(self):
+        """Plot an outline of the plasmid."""
+
+        fig, ax = plt.subplots()
+        graphic_record = dna_features_viewer.BiopythonTranslator().translate_record(
+            self.record
+        )
+        graphic_record.plot(ax=ax, with_ruler=False, strand_in_label_threshold=4)
+
+        self.fig = fig
