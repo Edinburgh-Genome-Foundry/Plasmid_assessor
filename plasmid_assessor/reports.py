@@ -1,17 +1,23 @@
 from datetime import datetime
 import os
 
-import matplotlib.pyplot as plt
-import pandas
 
-from pdf_reports import (
-    add_css_class,
-    dataframe_to_html,
-    pug_to_html,
-    style_table_rows,
-    write_report,
-)
-import pdf_reports.tools as pdf_tools
+try:
+    import pdf_reports.tools as pdf_tools
+    from pdf_reports import (
+        add_css_class,
+        dataframe_to_html,
+        pug_to_html,
+        style_table_rows,
+        write_report,
+    )
+    import pandas
+    import matplotlib
+
+    REPORT_PKGS_AVAILABLE = True
+except ImportError:
+    REPORT_PKGS_AVAILABLE = False
+
 
 from .version import __version__
 
@@ -46,6 +52,11 @@ def write_pdf_report(target, assessment):
     **assessment**
     > Assessment instance.
     """
+    if not REPORT_PKGS_AVAILABLE:
+        raise ImportError(
+            "Install extra packages with `pip install plasmid_assessor[report]`"
+        )
+
     assessment.plot_plasmid()
     assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt="svg")
 

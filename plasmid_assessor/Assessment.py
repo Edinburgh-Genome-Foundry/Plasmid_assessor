@@ -5,8 +5,37 @@ import matplotlib.pyplot as plt
 import Bio
 import Bio.Restriction
 
-import dna_features_viewer
 import dnacauldron as dc
+
+try:
+    from dna_features_viewer import BiopythonTranslator
+except ImportError:
+
+    class AssessmentTranslator:
+        """Please install dna_features_viewer to use this class."""
+
+        def __init__(self):
+            raise Exception("Please install dna_features_viewer to use this class.")
+
+
+else:
+
+    class AssessmentTranslator(BiopythonTranslator):
+        """Custom translator for highlighting key features."""
+
+        def compute_feature_color(self, feature):
+            assessment_ref = "plasmid_assessment"
+            if assessment_ref in feature.qualifiers:
+                if feature.qualifiers[assessment_ref] == "enzyme":
+                    return "red"
+                elif feature.qualifiers[assessment_ref] == "excised":
+                    return "yellow"
+                elif feature.qualifiers[assessment_ref] == "backbone":
+                    return "tab:cyan"
+                else:
+                    return "tab:blue"  # default dna_features_viewer color
+            else:
+                return "tab:blue"
 
 
 class Assessment:
@@ -141,9 +170,8 @@ class Assessment:
         """Plot an outline of the plasmid."""
 
         fig, ax = plt.subplots()
-        graphic_record = dna_features_viewer.BiopythonTranslator().translate_record(
-            self.record
-        )
-        graphic_record.plot(ax=ax, with_ruler=False, strand_in_label_threshold=4)
+        graphic_record = AssessmentTranslator().translate_record(self.record)
+        # graphic_record = BiopythonTranslator().translate_record(self.record)
+        graphic_record.plot(ax=ax, with_ruler=False, strand_in_label_threshold=2)
 
         self.fig = fig
