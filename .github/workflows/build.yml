@@ -17,6 +17,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov coveralls
+          pip install pdf_reports pandas matplotlib
       - name: Test pip installation
         run: |
           pip install -e .
