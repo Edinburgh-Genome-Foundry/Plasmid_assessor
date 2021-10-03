@@ -95,7 +95,7 @@ class Assessment:
 
         self.results["number_of_sites"] = len(self.analysis_results[self.enzyme])
 
-        # Add as features:
+        # Add as features for plot in report:
         for enzyme, sites in self.analysis_results.items():
             for site in sites:
                 self.record.features.append(
@@ -168,6 +168,19 @@ class Assessment:
         for enzyme, matches in self.results["other_sites"]["enzyme"].items():
             if len(matches) != 0:
                 self.results["other_sites"]["has_any_other_sites"] = True
+                # Also add as features for plot in report:
+                for site in matches:
+                    self.record.features.append(
+                        SeqFeature(
+                            FeatureLocation(site, site + 1),
+                            id=str(enzyme),
+                            type="misc_feature",
+                            qualifiers={
+                                "label": str(enzyme),
+                                "plasmid_assessment": "enzyme",
+                            },
+                        )
+                    )
 
     def sum_results(self):
         self.results["pass"] = True
