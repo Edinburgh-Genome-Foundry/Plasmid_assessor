@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 import Bio
 import Bio.Restriction
+from Bio.Seq import Seq
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 
 import dnacauldron as dc
@@ -73,6 +74,7 @@ class Assessment:
         self.digest_plasmid()
         self.count_other_sites(other_enzymes)
         self.sum_results()
+        self.plot_plasmid()
 
     def check_circularity(self):
         if "topology" not in self.record.annotations:
@@ -113,12 +115,59 @@ class Assessment:
     def evaluate_orientation(self):
         self.results["is_site_orientation_correct"] = False  # default
         # Forward strand:
-        iter = (match for match in re.finditer(self.enzyme.site, str(self.record.seq)))
-        if sum(1 for _ in iter) == 1:
-            rev_complement = str(self.record.seq.reverse_complement())
-            iter_reverse = (m for m in re.finditer(self.enzyme.site, rev_complement))
-            if sum(1 for _ in iter_reverse) == 1:  # 1 site in both strands:
+        self.iter_forward = [
+            match.end() for match in re.finditer(self.enzyme.site, str(self.record.seq))
+        ]
+        if sum(1 for _ in self.iter_forward) == 1:
+            self.forward_enzyme = self.iter_forward[0]
+            # rev_complement_site = str(self.record.seq.reverse_complement())
+            rev_complement_site = str(Seq(self.enzyme.site).reverse_complement())
+            self.iter_reverse = [
+                m.start()
+                for m in re.finditer(rev_complement_site, str(self.record.seq))
+            ]
+            if sum(1 for _ in self.iter_reverse) == 1:  # 1 site in both strands:
                 self.results["is_site_orientation_correct"] = True
+                self.reverse_enzyme = self.iter_reverse[0]
+
+        if self.results["is_site_orientation_correct"]:
+            if self.reverse_enzyme < self.forward_enzyme:
+                self.record.features.append(
+                    SeqFeature(
+                        FeatureLocation(
+                            self.reverse_enzyme - 1, self.forward_enzyme + 1
+                        ),
+                        id=str(self.enzyme),
+                        type="misc_feature",
+                        qualifiers={
+                            "label": "Excised",
+                            "plasmid_assessment": "excised",
+                        },
+                    )
+                )
+            else:  # put annotation together from two pieces:
+                self.record.features.append(
+                    SeqFeature(
+                        FeatureLocation(0, self.forward_enzyme + 1),
+                        id=str(self.enzyme),
+                        type="misc_feature",
+                        qualifiers={
+                            "label": "Excised",
+                            "plasmid_assessment": "excised",
+                        },
+                    )
+                )
+                self.record.features.append(
+                    SeqFeature(
+                        FeatureLocation(self.reverse_enzyme - 1, len(self.record)),
+                        id=str(self.enzyme),
+                        type="misc_feature",
+                        qualifiers={
+                            "label": "Excised",
+                            "plasmid_assessment": "excised",
+                        },
+                    )
+                )
 
     def digest_plasmid(self):
         # Obtain fragments and get the backbone's overhangs.
@@ -200,7 +249,6 @@ class Assessment:
 
         fig, ax = plt.subplots()
         graphic_record = AssessmentTranslator().translate_record(self.record)
-        # graphic_record = BiopythonTranslator().translate_record(self.record)
         graphic_record.plot(ax=ax, with_ruler=False, strand_in_label_threshold=2)
 
         self.fig = fig

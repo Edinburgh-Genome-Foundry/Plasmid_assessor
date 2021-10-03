@@ -57,7 +57,6 @@ def write_pdf_report(target, assessment):
             "Install extra packages with `pip install plasmid_assessor[report]`"
         )
 
-    assessment.plot_plasmid()
     assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt="svg")
 
     html = end_pug_to_html(REPORT_TEMPLATE, assessment=assessment,)
