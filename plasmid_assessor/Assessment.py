@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 import Bio
 import Bio.Restriction
+from Bio.SeqFeature import SeqFeature, FeatureLocation
 
 import dnacauldron as dc
 
@@ -90,9 +91,24 @@ class Assessment:
         analysis = Bio.Restriction.Analysis(
             restriction_batch, sequence=self.record.seq, linear=is_linear
         )
-        analysis_results = analysis.full(linear=is_linear)
+        self.analysis_results = analysis.full(linear=is_linear)
 
-        self.results["number_of_sites"] = len(analysis_results[self.enzyme])
+        self.results["number_of_sites"] = len(self.analysis_results[self.enzyme])
+
+        # Add as features:
+        for enzyme, sites in self.analysis_results.items():
+            for site in sites:
+                self.record.features.append(
+                    SeqFeature(
+                        FeatureLocation(site, site + 1),
+                        id=str(enzyme),
+                        type="misc_feature",
+                        qualifiers={
+                            "label": str(enzyme),
+                            "plasmid_assessment": "enzyme",
+                        },
+                    )
+                )
 
     def evaluate_orientation(self):
         self.results["is_site_orientation_correct"] = False  # default
