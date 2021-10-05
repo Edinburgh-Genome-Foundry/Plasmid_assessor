@@ -84,6 +84,7 @@ class Assessment:
         self.evaluate_orientation()
         self.digest_plasmid()
         self.count_other_sites(other_enzymes)
+        self.check_enzyme_site_locations()
         self.sum_results()
         self.plot_plasmid()
 
@@ -252,6 +253,63 @@ class Assessment:
                             },
                         )
                     )
+
+    def check_enzyme_site_locations(self):
+        """Flag enzyme sites that are within the retained backbone."""
+        try:
+            self.results["other_sites"]["has_any_other_sites"]
+            self.results["is_site_orientation_correct"]
+        except KeyError:
+            print("Run assessment methods first!")
+        else:
+            self.sites_outside_excised_region = {}
+            if (
+                self.results["other_sites"]["has_any_other_sites"]
+                and self.results["is_site_orientation_correct"]
+            ):
+                # if there are no other sites, no need to run:
+                if self.reverse_enzyme < self.forward_enzyme:
+                    # orientation = reverse -> forward
+                    for enzyme, sites in self.results["other_sites"]["enzyme"].items():
+                        problem_sites = []
+                        for site in sites:
+                            if self.reverse_enzyme < site < self.forward_enzyme:
+                                pass
+                            else:
+                                problem_sites += [str(site)]
+                        if problem_sites != []:
+                            self.sites_outside_excised_region[
+                                str(enzyme)
+                            ] = problem_sites
+                    txt = ""  # for the pdf report
+                    for (
+                        enzyme,
+                        problem_sites,
+                    ) in self.sites_outside_excised_region.items():
+                        txt += enzyme + ": " + " ".join(problem_sites) + ";"
+                    self.sites_outside_excised_region_txt = txt
+                else:
+                    # orientation = forward -> reverse
+                    for enzyme, sites in self.results["other_sites"]["enzyme"].items():
+                        problem_sites = []
+                        for site in sites:
+                            if self.forward_enzyme < site < self.reverse_enzyme:
+                                # in this case the site is within the retained backbone
+                                problem_sites += [str(site)]
+                        if problem_sites != []:
+                            self.sites_outside_excised_region[
+                                str(enzyme)
+                            ] = problem_sites
+                    txt = ""  # for the pdf report
+                    for (
+                        enzyme,
+                        problem_sites,
+                    ) in self.sites_outside_excised_region.items():
+                        txt += enzyme + ": " + " ".join(problem_sites) + ";"
+                    self.sites_outside_excised_region_txt = txt
+
+            else:  # no other sites or orientation not correct
+                self.sites_outside_excised_region_txt = ""
 
     def sum_results(self):
         self.results["pass"] = True
