@@ -11,11 +11,11 @@ div(style="margin-top:1cm; margin-bottom:1cm;")
 
 if assessment.results.pass
   p(style="text-align:left;")
-    b(style='font-size: 50px;') #[span.green ☑] &ensp; #[span.grey Passed!]
+    b(style='font-size: 50px;') #[span.green ☑] &ensp; #[span.grey {{ assessment.name }}]
     //- b(style='font-size: 20px;') &emsp;&emsp; Success!
 else
   p(style="text-align:left;")
-    b(style='font-size: 50px;') #[span.red ☒] &ensp; #[span.grey Error!]
+    b(style='font-size: 50px;') #[span.red ☒] &ensp; #[span.grey {{ assessment.name }}]
 
   //- p(style="text-align:left;")
   //-   b(style='font-size: 50px;') #[span.yellow ⚠] &ensp; #[span.grey {{ id }}]

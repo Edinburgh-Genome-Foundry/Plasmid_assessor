@@ -54,6 +54,16 @@ class Assessment:
     up using the string.
     """
 
+    UNKNOWN_IDS = [
+        "None",
+        "",
+        "<unknown id>",
+        ".",
+        "EXPORTED",
+        "<unknown name>",
+        "Exported",
+    ]
+
     def __init__(self, record, enzyme):
         self.record = record
         self.enzyme = Bio.Restriction.__dict__[enzyme]
@@ -75,6 +85,15 @@ class Assessment:
         self.count_other_sites(other_enzymes)
         self.sum_results()
         self.plot_plasmid()
+
+        # This adds a nice name to display on the report:
+        if str(self.record.id).strip() in self.UNKNOWN_IDS:
+            self.name = "Unnamed plasmid"
+        else:
+            if len(self.record.id) > 16:  # Genbank limit, also for width in report
+                self.name = self.record.id[:16] + "..."
+            else:
+                self.name = self.record.id
 
     def check_circularity(self):
         if "topology" not in self.record.annotations:
@@ -247,7 +266,7 @@ class Assessment:
     def plot_plasmid(self):
         """Plot an outline of the plasmid."""
 
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(7, 4))
         graphic_record = AssessmentTranslator().translate_record(self.record)
         graphic_record.plot(ax=ax, with_ruler=False, strand_in_label_threshold=2)
 
