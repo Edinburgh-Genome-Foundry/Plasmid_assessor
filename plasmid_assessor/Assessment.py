@@ -78,6 +78,7 @@ class Assessment:
         **other_enzymes**
         > List of enzymes used in higher level assemblies (`list`).
         """
+        self.add_name()
         self.check_circularity()
         self.get_number_of_sites()
         self.evaluate_orientation()
@@ -86,7 +87,9 @@ class Assessment:
         self.sum_results()
         self.plot_plasmid()
 
-        # This adds a nice name to display on the report:
+    def add_name(self):
+        """Set a name for the assessment."""
+        # To display on the report:
         if str(self.record.id).strip() in self.UNKNOWN_IDS:
             self.name = "Unnamed plasmid"
         else:
