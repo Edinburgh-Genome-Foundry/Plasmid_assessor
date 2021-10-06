@@ -67,6 +67,7 @@ class Assessment:
     def __init__(self, record, enzyme):
         self.record = record
         self.enzyme = Bio.Restriction.__dict__[enzyme]
+        self.enzyme_name = str(self.enzyme)
         self.results = {}
 
     def assess_plasmid(self, other_enzymes=None):
@@ -78,6 +79,8 @@ class Assessment:
         **other_enzymes**
         > List of enzymes used in higher level assemblies (`list`).
         """
+        if other_enzymes:
+            self.other_enzymes = ", ".join([str(enz) for enz in other_enzymes])
         self.add_name()
         self.check_circularity()
         self.get_number_of_sites()
@@ -320,9 +323,12 @@ class Assessment:
             # implicitly checks number of sites too
             self.results["pass"] = False
             return
-        if self.results["other_sites"]["has_any_other_sites"]:
+        if self.sites_outside_excised_region_txt:
             self.results["pass"] = False
             return
+        # if self.results["other_sites"]["has_any_other_sites"]:
+        #     self.results["pass"] = False
+        #     return
 
     def plot_plasmid(self):
         """Plot an outline of the plasmid."""

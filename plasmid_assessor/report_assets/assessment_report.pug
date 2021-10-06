@@ -20,20 +20,43 @@ else
   //- p(style="text-align:left;")
   //-   b(style='font-size: 50px;') #[span.yellow ⚠] &ensp; #[span.grey {{ id }}]
 
+div(style="margin-top:1cm; margin-bottom:1cm;")
+
+p The plasmid was checked for: #[strong {{ assessment.enzyme_name }}].
+
+if assessment.other_enzymes
+  if assessment.results.other_sites.has_any_other_sites
+    if assessment.sites_outside_excised_region_txt
+      p #[span.red ☒] These additional enzymes were also checked: {{ assessment.other_enzymes }}. The plasmid contains sites for these enzymes. Of these sites, the following were found to be retained in the backbone: {{ assessment.sites_outside_excised_region_txt }}
+    else
+      p #[span.yellow ⚠] These additional enzymes were also checked: {{ assessment.other_enzymes }}. The plasmid contains sites for these enzymes, however, these are <i>not</i> retained in the backbone upon assembly.
+
+  else
+    p These additional enzymes were also checked: {{ assessment.other_enzymes }}. The plasmid does not contain sites for these enzymes.
+
 
 //- {{ assessment.report_table }}
 
 
+unless assessment.results.is_circular
+  p #[span.yellow ⚠] Sequence topology was not set to 'circular'. Set sequence to circular and re-run assessment to search for potential enzyme sites spanning over the ends of the sequence.
+
+
 h3 Plasmid map
+
+p {{ assessment.record.id }}
 
 img#diff-figure(src="{{ assessment.figure_data }}")
 
 //- img#diff-figure(src="{{ assessment.schematics_data }}")
 
+div(style="margin-top:0.5cm; margin-bottom:0.5cm;")
 
-unless assessment.results.is_circular
-
-  p Sequence topology was not set to 'circular'. Set sequence to circular and re-run assessment to search for potential enzyme sites spanning over the ends of the sequence.
+p.
+  Check that the plasmid contains the following functional elements:<br>
+  ☐ origin of replication (ori)<br>
+  ☐ selection for proper assembly and against intact backbone (e.g. ccdB in excised region)<br>
+  ☐ selection for presence of plasmid in the bacterium (e.g. AmpR)
 
 
 
