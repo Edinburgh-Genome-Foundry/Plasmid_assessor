@@ -436,7 +436,11 @@
                   
                 
                 
-                <h1 id="plasmid-assessor">Plasmid assessor</h1>
+                <p align="center">
+<img alt="Plasma logo" title="Plasma" src="images/plasma_logo.png" width="120">
+</p>
+
+<h1 id="plasmid-assessor">Plasmid assessor</h1>
 <p><a href="https://github.com/Edinburgh-Genome-Foundry/Plasmid_assessor/actions/workflows/build.yml"><img alt="build" src="https://github.com/Edinburgh-Genome-Foundry/Plasmid_assessor/actions/workflows/build.yml/badge.svg" /></a>
 <a href="https://coveralls.io/github/Edinburgh-Genome-Foundry/Plasmid_assessor?branch=main"><img alt="coverage" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Plasmid_assessor/badge.svg?branch=main" /></a></p>
 <p>Plasmid assessment for Golden Gate cloning. An important task in DNA assembly is creating or adapting a plasmid to serve as a backbone for the assembled parts. This package provides tools for quickly checking a few basic backbone requirements on a plasmid sequence.</p>
@@ -456,19 +460,25 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">plasmid_assessor</span> <span class="k">as</span> <span class="nn">plasma</span>
 
 <span class="c1"># Load your Genbank or FASTA file as a Biopython SeqRecord, or create a new one:</span>
-<span class="kn">from</span> <span class="nn">Bio.SeqRecord</span> <span class="kn">import</span> <span class="n">SeqRecord</span>
-<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
-<span class="n">sequence</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;CGTCTCAACTG&quot;</span> <span class="o">+</span> <span class="s2">&quot;AAA&quot;</span> <span class="o">+</span> <span class="s2">&quot;TATCAGAGACG&quot;</span> <span class="o">+</span> <span class="s2">&quot;AGGTCTC&quot;</span><span class="p">),</span> <span class="n">annotations</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;topology&quot;</span><span class="p">:</span> <span class="s2">&quot;circular&quot;</span><span class="p">})</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;HC_Amp_ccdB.gb&quot;</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">)</span>
+<span class="c1"># sequence.annotations[&quot;topology&quot;] = &quot;circular&quot;  # make sure it&#39;s circular</span>
+<span class="c1"># sequence.id = &quot;HC_Amp_ccdB&quot;  # can specify a name for the plasmid</span>
 
 <span class="c1"># Evaluate plasmid:</span>
 <span class="n">design</span> <span class="o">=</span> <span class="n">plasma</span><span class="o">.</span><span class="n">Assessment</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="s2">&quot;BsmBI&quot;</span><span class="p">)</span>
-<span class="n">design</span><span class="o">.</span><span class="n">assess_plasmid</span><span class="p">(</span><span class="n">other_enzymes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;BsaI&quot;</span><span class="p">])</span>  <span class="c1"># also check for the enzyme of the 2nd level assembly</span>
+<span class="n">design</span><span class="o">.</span><span class="n">assess_plasmid</span><span class="p">(</span><span class="n">other_enzymes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;BsaI&quot;</span><span class="p">])</span>  <span class="c1"># also check for the enzyme(s) of the 2nd (3rd..) level assembly</span>
 <span class="c1"># Results are stored in:</span>
 <span class="n">design</span><span class="o">.</span><span class="n">results</span>
 <span class="c1"># Save as a PDF report:</span>
 <span class="n">plasma</span><span class="o">.</span><span class="n">write_pdf_report</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">,</span> <span class="n">design</span><span class="p">)</span>
 </code></pre></div>
 
+
+<p>Plasmid assessor checks the properties listed in the introduction and if the plamid passes, then it gets a green ☑ symbol; if there are errors, it's flagged with a red ☒ symbol. Warning comments are marked with a yellow ⚠ sign.</p>
+<p align="center">
+<img alt="Plasma report" title="Plasma report" src="images/plasma_report_screenshot.png" width="450">
+</p>
 
 <h2 id="versioning">Versioning</h2>
 <p>Plasmid assessor uses the <a href="https://semver.org">semantic versioning</a> scheme.</p>

@@ -457,25 +457,33 @@
 
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">try</span><span class="p">:</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span>
+    <span class="kn">import</span> <span class="nn">pdf_reports.tools</span> <span class="k">as</span> <span class="nn">pdf_tools</span>
 
-<span class="kn">from</span> <span class="nn">pdf_reports</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="kn">from</span> <span class="nn">pdf_reports</span> <span class="kn">import</span> <span class="p">(</span>
 
-    <span class="n">add_css_class</span><span class="p">,</span>
+        <span class="n">add_css_class</span><span class="p">,</span>
 
-    <span class="n">dataframe_to_html</span><span class="p">,</span>
+        <span class="n">dataframe_to_html</span><span class="p">,</span>
 
-    <span class="n">pug_to_html</span><span class="p">,</span>
+        <span class="n">pug_to_html</span><span class="p">,</span>
 
-    <span class="n">style_table_rows</span><span class="p">,</span>
+        <span class="n">style_table_rows</span><span class="p">,</span>
 
-    <span class="n">write_report</span><span class="p">,</span>
+        <span class="n">write_report</span><span class="p">,</span>
 
-<span class="p">)</span>
+    <span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">pdf_reports.tools</span> <span class="k">as</span> <span class="nn">pdf_tools</span>
+    <span class="kn">import</span> <span class="nn">pandas</span>
+
+    <span class="kn">import</span> <span class="nn">matplotlib</span>
+
+    <span class="n">REPORT_PKGS_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+
+    <span class="n">REPORT_PKGS_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="kn">from</span> <span class="nn">.version</span> <span class="kn">import</span> <span class="n">__version__</span>
 
@@ -497,7 +505,7 @@
 
         <span class="o">%</span> <span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">__version__</span><span class="p">),</span>
 
-        <span class="s2">&quot;plasma_logo_url&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ASSETS_PATH</span><span class="p">,</span> <span class="s2">&quot;imgs&quot;</span><span class="p">,</span> <span class="s2">&quot;logo.png&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;plasma_logo_url&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ASSETS_PATH</span><span class="p">,</span> <span class="s2">&quot;imgs&quot;</span><span class="p">,</span> <span class="s2">&quot;plasma_logo.png&quot;</span><span class="p">),</span>
 
     <span class="p">}</span>
 
@@ -525,7 +533,15 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt=&quot;svg&quot;)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">REPORT_PKGS_AVAILABLE</span><span class="p">:</span>
+
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+
+            <span class="s2">&quot;Install extra packages with `pip install plasmid_assessor[report]`&quot;</span>
+
+        <span class="p">)</span>
+
+    <span class="n">assessment</span><span class="o">.</span><span class="n">figure_data</span> <span class="o">=</span> <span class="n">pdf_tools</span><span class="o">.</span><span class="n">figure_data</span><span class="p">(</span><span class="n">assessment</span><span class="o">.</span><span class="n">fig</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
 
     <span class="n">html</span> <span class="o">=</span> <span class="n">end_pug_to_html</span><span class="p">(</span><span class="n">REPORT_TEMPLATE</span><span class="p">,</span> <span class="n">assessment</span><span class="o">=</span><span class="n">assessment</span><span class="p">,)</span>
 
@@ -536,6 +552,10 @@
 </details>
 <h2 id="variables">Variables</h2>
 <div class="codehilite"><pre><span></span><code><span class="n">ASSETS_PATH</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">REPORT_PKGS_AVAILABLE</span>
 </code></pre></div>
 
 
@@ -570,7 +590,7 @@
 
 <span class="w">        </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">__version__</span><span class="p">),</span><span class="w"></span>
 
-<span class="w">        </span><span class="ss">&quot;plasma_logo_url&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">ASSETS_PATH</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;imgs&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;logo.png&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="ss">&quot;plasma_logo_url&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">ASSETS_PATH</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;imgs&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;plasma_logo.png&quot;</span><span class="p">),</span><span class="w"></span>
 
 <span class="w">    </span><span class="err">}</span><span class="w"></span>
 
@@ -603,27 +623,35 @@
 <blockquote>
 <p>Assessment instance.</p>
 </blockquote>
-<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">write_pdf_report</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">assessment</span><span class="p">):</span>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">write_pdf_report</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">assessment</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
 
-    <span class="sd">&quot;&quot;&quot;Write an assessment report with a PDF summary.</span>
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Write an assessment report with a PDF summary.</span>
 
-<span class="sd">    **Parameters**</span>
+<span class="ss">    **Parameters**</span>
 
-<span class="sd">    **target**</span>
+<span class="ss">    **target**</span>
 
-<span class="sd">    &gt; Path for PDF file.</span>
+<span class="ss">    &gt; Path for PDF file.</span>
 
-<span class="sd">    **assessment**</span>
+<span class="ss">    **assessment**</span>
 
-<span class="sd">    &gt; Assessment instance.</span>
+<span class="ss">    &gt; Assessment instance.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
 
-    <span class="c1"># assessment.figure_data = pdf_tools.figure_data(assessment.fig, fmt=&quot;svg&quot;)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nl">REPORT_PKGS_AVAILABLE</span><span class="p">:</span><span class="w"></span>
 
-    <span class="n">html</span> <span class="o">=</span> <span class="n">end_pug_to_html</span><span class="p">(</span><span class="n">REPORT_TEMPLATE</span><span class="p">,</span> <span class="n">assessment</span><span class="o">=</span><span class="n">assessment</span><span class="p">,)</span>
+<span class="w">        </span><span class="n">raise</span><span class="w"> </span><span class="n">ImportError</span><span class="p">(</span><span class="w"></span>
 
-    <span class="n">write_report</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">extra_stylesheets</span><span class="o">=</span><span class="p">(</span><span class="n">STYLESHEET</span><span class="p">,))</span>
+<span class="w">            </span><span class="ss">&quot;Install extra packages with `pip install plasmid_assessor[report]`&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">assessment</span><span class="p">.</span><span class="n">figure_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pdf_tools</span><span class="p">.</span><span class="n">figure_data</span><span class="p">(</span><span class="n">assessment</span><span class="p">.</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=</span><span class="ss">&quot;svg&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end_pug_to_html</span><span class="p">(</span><span class="n">REPORT_TEMPLATE</span><span class="p">,</span><span class="w"> </span><span class="n">assessment</span><span class="o">=</span><span class="n">assessment</span><span class="p">,)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">write_report</span><span class="p">(</span><span class="n">html</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">extra_stylesheets</span><span class="o">=</span><span class="p">(</span><span class="n">STYLESHEET</span><span class="p">,))</span><span class="w"></span>
 </code></pre></div>
 
 
