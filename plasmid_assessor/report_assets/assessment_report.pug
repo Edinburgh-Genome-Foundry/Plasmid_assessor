@@ -39,7 +39,8 @@ if assessment.other_enzymes
 
 if assessment.results.digest.first_overhang
   p.
-    The backbone overhangs (first and last overhangs of the assembly) are: #[span.grey NNN]#[strong {{ assessment.results.digest.first_overhang }}] &emsp; #[span.grey <i>parts</i>] &emsp; #[span.darkgrey #[strong {{ assessment.results.digest.last_overhang }}]]#[span.grey NNN]
+    The backbone overhangs (first and last overhangs of the assembly) are: #[span.grey NNN]#[span.darkgrey #[strong {{ assessment.results.digest.first_overhang }}]] &emsp; #[span.grey <i>parts</i>] &emsp; 
+    #[strong {{ assessment.results.digest.last_overhang }}]#[span.grey NNN]
 
 unless assessment.results.is_circular
   p #[span.yellow ⚠] Sequence topology was not set to 'circular'. Set sequence to circular and re-run assessment to search for potential enzyme sites spanning over the ends of the sequence.
