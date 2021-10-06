@@ -32,7 +32,7 @@ def end_pug_to_html(template, **context):
     defaults = {
         "sidebar_text": "Generated on %s by EGF's Plasmid assessor (version %s)"
         % (now, __version__),
-        "plasma_logo_url": os.path.join(ASSETS_PATH, "imgs", "logo.png"),
+        "plasma_logo_url": os.path.join(ASSETS_PATH, "imgs", "plasma_logo.png"),
     }
     for k in defaults:
         if k not in context:

@@ -1,7 +1,8 @@
 #sidebar: p {{sidebar_text}}
 
 .logos
-  img(src="file:///{{ egf_logo_url }}" style="height:40px; width: auto")
+  img(src="file:///{{ egf_logo_url }}" style="height:40px; width:auto")
+  img(src="file:///{{ plasma_logo_url }}" style="width:40px; height:auto; float:right")
 
 hr
 h1 Plasmid assessment report
@@ -39,7 +40,9 @@ if assessment.other_enzymes
 
 if assessment.results.digest.first_overhang
   p.
-    The backbone overhangs (first and last overhangs of the assembly) are: #[span.grey NNN]#[span.darkgrey #[strong {{ assessment.results.digest.first_overhang }}]] &emsp; #[span.grey <i>parts</i>] &emsp; 
+    The backbone overhangs (first and last overhangs of the assembly) are: 
+    #[span.grey NNN]#[span.darkgrey #[strong {{ assessment.results.digest.first_overhang }}]]
+    &emsp; #[span.grey<i>parts</i> ] &emsp;
     #[strong {{ assessment.results.digest.last_overhang }}]#[span.grey NNN]
 
 unless assessment.results.is_circular

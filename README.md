@@ -1,3 +1,8 @@
+<p align="center">
+<img alt="Plasma logo" title="Plasma" src="images/plasma_logo.png" width="120">
+</p>
+
+
 # Plasmid assessor
 
 
