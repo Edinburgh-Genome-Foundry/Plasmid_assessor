@@ -34,18 +34,24 @@ pip install plasmid_assessor
 import plasmid_assessor as plasma
 
 # Load your Genbank or FASTA file as a Biopython SeqRecord, or create a new one:
-from Bio.SeqRecord import SeqRecord
-from Bio.Seq import Seq
-sequence = SeqRecord(Seq("CGTCTCAACTG" + "AAA" + "TATCAGAGACG" + "AGGTCTC"), annotations={"topology": "circular"})
+from Bio import SeqIO
+sequence = SeqIO.read("HC_Amp_ccdB.gb", "genbank")
+# sequence.annotations["topology"] = "circular"  # make sure it's circular
+# sequence.id = "HC_Amp_ccdB"  # can specify a name for the plasmid
 
 # Evaluate plasmid:
 design = plasma.Assessment(sequence, "BsmBI")
-design.assess_plasmid(other_enzymes=["BsaI"])  # also check for the enzyme of the 2nd level assembly
+design.assess_plasmid(other_enzymes=["BsaI"])  # also check for the enzyme(s) of the 2nd (3rd..) level assembly
 # Results are stored in:
 design.results
 # Save as a PDF report:
 plasma.write_pdf_report("report.pdf", design)
 ```
+Plasmid assessor checks the properties listed in the introduction and if the plamid passes, then it gets a green ☑ symbol; if there are errors, it's flagged with a red ☒ symbol. Warning comments are marked with a yellow ⚠ sign.
+
+<p align="center">
+<img alt="Plasma report" title="Plasma report" src="images/plasma_report_screenshot.png" width="450">
+</p>
 
 
 ## Versioning
